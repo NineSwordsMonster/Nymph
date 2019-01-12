@@ -4,8 +4,6 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Environment;
 
-import com.ninesward.nymph.ui.JoyStickManager;
-
 import java.io.File;
 
 public class NymphApp extends Application {

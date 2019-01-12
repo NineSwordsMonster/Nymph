@@ -1,4 +1,4 @@
-package com.ninesward.nymph.ui;
+package com.ninesward.nymph;
 
 public interface IJoyStickPresenter {
     void onSetLocationClick();
@@ -16,5 +16,4 @@ public interface IJoyStickPresenter {
     void onArrowLeftClick();
 
     void onArrowRightClick();
-
 }

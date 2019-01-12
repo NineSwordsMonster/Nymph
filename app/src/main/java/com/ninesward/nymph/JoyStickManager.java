@@ -1,4 +1,4 @@
-package com.ninesward.nymph.ui;
+package com.ninesward.nymph;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -6,6 +6,8 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.ninesward.nymph.model.LocPoint;
+import com.ninesward.nymph.ui.BookmarkActivity;
+import com.ninesward.nymph.ui.MainActivity;
 
 public class JoyStickManager implements IJoyStickPresenter {
     private static final String TAG = "JoyStickManager";

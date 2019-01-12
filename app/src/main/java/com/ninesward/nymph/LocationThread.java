@@ -1,4 +1,4 @@
-package com.ninesward.nymph.ui;
+package com.ninesward.nymph;
 
 import android.content.Context;
 import android.location.Location;
@@ -10,6 +10,7 @@ import android.os.SystemClock;
 import android.provider.Settings;
 import android.util.Log;
 
+import com.ninesward.nymph.JoyStickManager;
 import com.ninesward.nymph.model.LocPoint;
 
 import java.lang.reflect.Field;
