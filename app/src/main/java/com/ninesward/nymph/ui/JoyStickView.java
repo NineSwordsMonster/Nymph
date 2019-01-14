@@ -36,8 +36,7 @@ public class JoyStickView extends FrameLayout {
 
     public JoyStickView(Context context) {
         super(context);
-        mWindowManager = (WindowManager) context
-                .getSystemService(Context.WINDOW_SERVICE);
+        mWindowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         LayoutInflater.from(context).inflate(R.layout.joystick_layout, this);
 
         sStatusBarHeight = ScreenUtils.getStatusBarHeight(context);
@@ -45,10 +44,11 @@ public class JoyStickView extends FrameLayout {
         mViewHeight = context.getResources().getDimensionPixelSize(R.dimen.joystick_height);
 
         mWindowLayoutParams = new WindowManager.LayoutParams();
-        mWindowLayoutParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+
+        mWindowLayoutParams.type = WindowManager.LayoutParams.TYPE_TOAST;
+
         mWindowLayoutParams.format = PixelFormat.RGBA_8888;
-        mWindowLayoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
-                | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
+        mWindowLayoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
         mWindowLayoutParams.gravity = Gravity.LEFT | Gravity.TOP;
 
         //the real width and height is needed, or the view cannot be shown

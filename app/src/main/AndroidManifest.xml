@@ -34,6 +34,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.BookmarkActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_bookmark"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Dialog"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <activity android:name=".ui.FlyToActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/label_fly"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"/>
     </application>
 
 </manifest>
