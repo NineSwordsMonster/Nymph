@@ -32,10 +32,7 @@ import com.ninesward.nymph.util.FakeGpsUtils;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity
-        implements
-        ActivityCompat.OnRequestPermissionsResultCallback,
-    View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback, View.OnClickListener {
 
     private final double LAT_DEFAULT = 37.802406;
     private final double LON_DEFAULT = -122.401779;

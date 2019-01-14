@@ -1,5 +1,11 @@
 package com.ninesward.nymph.model;
 
+import com.litesuits.orm.db.annotation.Column;
+import com.litesuits.orm.db.annotation.NotNull;
+import com.litesuits.orm.db.annotation.PrimaryKey;
+import com.litesuits.orm.db.annotation.Table;
+import com.litesuits.orm.db.enums.AssignType;
+
 import java.io.Serializable;
 
 @Table("LocBookmark")

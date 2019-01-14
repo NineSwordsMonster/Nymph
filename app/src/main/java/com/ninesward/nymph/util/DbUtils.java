@@ -1,10 +1,14 @@
 package com.ninesward.nymph.util;
 
+import com.litesuits.orm.LiteOrm;
+
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.content.LocalBroadcastManager;
 
+import com.litesuits.orm.LiteOrm;
+import com.litesuits.orm.db.model.ConflictAlgorithm;
 import com.ninesward.nymph.NymphApp;
 import com.ninesward.nymph.event.BroadcastEvent;
 import com.ninesward.nymph.model.LocBookmark;
