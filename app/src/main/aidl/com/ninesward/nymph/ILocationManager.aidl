@@ -1,6 +1,6 @@
 // ILocationManager.aidl
 package com.ninesward.nymph;
-
+import android.location.Location;
 // Declare any non-default types here with import statements
 
 interface ILocationManager {

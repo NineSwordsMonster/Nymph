@@ -9,7 +9,7 @@
         android:id="@+id/btn_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_keyboard_arrow_up_black_24dp"/>
+        android:src="@drawable/ic_keyboard_arrow_up_black_24dp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -20,7 +20,7 @@
             android:id="@+id/btn_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_keyboard_arrow_left_black_24dp"/>
+            android:src="@drawable/ic_keyboard_arrow_left_black_24dp" />
 
 
         <com.ninesward.nymph.ui.JoyStickButton
@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:src="@drawable/ic_keyboard_arrow_right_black_24dp"/>
+            android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
 
     </LinearLayout>
 
@@ -37,7 +37,7 @@
         android:id="@+id/btn_down"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_keyboard_arrow_down_black_24dp"/>
+        android:src="@drawable/ic_keyboard_arrow_down_black_24dp" />
 
 
 </LinearLayout>

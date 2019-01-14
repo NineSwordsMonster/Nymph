@@ -1,16 +1,26 @@
 package com.ninesward.nymph.ui;
 
 import android.content.Context;
+import android.support.v7.widget.AppCompatImageButton;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
-import android.widget.ImageButton;
 
-public class JoyStickButton extends ImageButton {
+public class JoyStickButton extends AppCompatImageButton {
 
     private static final String TAG = "JoyStickButton";
 
     private boolean mIsPressDown = false;
+    private Runnable mLongPressDetectorRunnable = new Runnable() {
+        @Override
+        public void run() {
+            if (mIsPressDown) {
+                Log.d(TAG, "invoke click");
+                performClick();
+                postDelayed(this, 500);
+            }
+        }
+    };
 
     public JoyStickButton(Context context) {
         super(context);
@@ -40,16 +50,4 @@ public class JoyStickButton extends ImageButton {
         return super.onTouchEvent(event);
 
     }
-
-
-    private Runnable mLongPressDetectorRunnable = new Runnable() {
-        @Override
-        public void run() {
-            if (mIsPressDown) {
-                Log.d(TAG, "invoke click");
-                performClick();
-                postDelayed(this, 500);
-            }
-        }
-    };
 }

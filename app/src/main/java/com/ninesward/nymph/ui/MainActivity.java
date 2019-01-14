@@ -119,6 +119,15 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             arrPerm.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
         }
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_SECURE_SETTINGS) != PackageManager.PERMISSION_GRANTED) {
+            arrPerm.add(Manifest.permission.WRITE_SECURE_SETTINGS);
+        }
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_SETTINGS) != PackageManager.PERMISSION_GRANTED) {
+            arrPerm.add(Manifest.permission.WRITE_SETTINGS);
+        }
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CONTROL_LOCATION_UPDATES) != PackageManager.PERMISSION_GRANTED) {
+            arrPerm.add(Manifest.permission.WRITE_SETTINGS);
+        }
         if (!arrPerm.isEmpty()) {
             String[] permissions = new String[arrPerm.size()];
             permissions = arrPerm.toArray(permissions);

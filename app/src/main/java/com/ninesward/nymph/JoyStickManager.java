@@ -20,7 +20,7 @@ public class JoyStickManager implements IJoyStickPresenter {
     private static JoyStickManager INSTANCE = new JoyStickManager();
 
     private Context mContext;
-    private LocationThread mLocationThread;
+//    private LocationThread mLocationThread;
     private boolean mIsStarted = false;
     private double mMoveStep = STEP_DEFAULT;
 
@@ -47,19 +47,19 @@ public class JoyStickManager implements IJoyStickPresenter {
 
     public void start(@NonNull LocPoint locPoint) {
         mCurrentLocPoint = locPoint;
-        if (mLocationThread == null || !mLocationThread.isAlive()) {
-            mLocationThread = new LocationThread(mContext.getApplicationContext(), this);
-            mLocationThread.startThread();
-        }
+//        if (mLocationThread == null || !mLocationThread.isAlive()) {
+//            mLocationThread = new LocationThread(mContext.getApplicationContext(), this);
+//            mLocationThread.startThread();
+//        }
         showJoyStick();
         mIsStarted = true;
     }
 
     public void stop() {
-        if (mLocationThread != null) {
-            mLocationThread.stopThread();
-            mLocationThread = null;
-        }
+//        if (mLocationThread != null) {
+//            mLocationThread.stopThread();
+//            mLocationThread = null;
+//        }
 
         hideJoyStick();
         mIsStarted = false;
