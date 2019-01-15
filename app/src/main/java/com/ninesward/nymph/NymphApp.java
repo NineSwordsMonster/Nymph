@@ -14,6 +14,21 @@ public class NymphApp extends Application {
 
     private volatile static LiteOrm sLiteOrm;
 
+    public static Context get() {
+        return app.getApplicationContext();
+    }
+
+    public static LiteOrm getLiteOrm() {
+        if (sLiteOrm == null) {
+            synchronized (NymphApp.class) {
+                if (sLiteOrm == null) {
+                    sLiteOrm = LiteOrm.newSingleInstance(get(), "fake_gps.db");
+                    sLiteOrm.setDebugged(true);
+                }
+            }
+        }
+        return sLiteOrm;
+    }
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -29,22 +44,6 @@ public class NymphApp extends Application {
         JoyStickManager.get().init(this);
         sAppContext = getApplicationContext();
         Log.d("app : >>>", sAppContext.toString());
-    }
-
-    public static Context get() {
-        return app.getApplicationContext();
-    }
-
-    public static LiteOrm getLiteOrm() {
-        if (sLiteOrm == null) {
-            synchronized (NymphApp.class) {
-                if (sLiteOrm == null) {
-                    sLiteOrm = LiteOrm.newSingleInstance(get(), "fake_gps.db");
-                    sLiteOrm.setDebugged(true);
-                }
-            }
-        }
-        return sLiteOrm;
     }
 
 }

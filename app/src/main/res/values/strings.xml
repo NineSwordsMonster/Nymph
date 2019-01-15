@@ -29,4 +29,6 @@
     <string name="bookmark_name">Bookmark Name</string>
     <string name="no_data">No Bookmarks</string>
     <string name="save">Save</string>
+
+    <string name="dummy_content">Nymph</string>
 </resources>

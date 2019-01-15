@@ -1,6 +1,7 @@
 package com.ninesward.nymph.ui;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -8,6 +9,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AlertDialog;
@@ -33,6 +35,8 @@ import com.ninesward.nymph.util.DbUtils;
 import com.ninesward.nymph.util.FakeGpsUtils;
 
 import java.util.ArrayList;
+
+import static com.ninesward.nymph.util.FakeGpsUtils.isLocServiceEnable;
 
 public class MainActivity
         extends AppCompatActivity
@@ -85,6 +89,27 @@ public class MainActivity
             }
         }
 
+        AlertDialog.Builder builder  = new AlertDialog.Builder(this);
+        builder.setMessage("尚未开启位置定位服务");
+        builder.setPositiveButton("开启", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //启动定位Activity
+                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                startActivityForResult(intent , 2);
+
+
+            }
+
+
+        });
+
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+
         mLocEditText.setSelection(mLocEditText.getText().length());
 
         //each move step delta
@@ -105,6 +130,15 @@ public class MainActivity
         initListView();
 
         registerBroadcastReceiver();
+    }
+
+    @Override
+    public void onBackPressed() {
+        // super.onBackPressed(); 	不要调用父类的方法
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        startActivity(intent);
     }
 
     @Override
