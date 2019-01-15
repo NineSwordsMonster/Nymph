@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
@@ -33,10 +34,9 @@ import com.ninesward.nymph.model.LocBookmark;
 import com.ninesward.nymph.model.LocPoint;
 import com.ninesward.nymph.util.DbUtils;
 import com.ninesward.nymph.util.FakeGpsUtils;
+import com.ninesward.nymph.util.LocationUtil;
 
 import java.util.ArrayList;
-
-import static com.ninesward.nymph.util.FakeGpsUtils.isLocServiceEnable;
 
 public class MainActivity
         extends AppCompatActivity
@@ -44,6 +44,7 @@ public class MainActivity
 
     public static final int DELETE_ID = 1001;
     public static final int MY_PERMISSIONS_REQUEST = 1;
+    public static final int REQUEST_CODE_PERMISSIONS = 2;
     private final double LAT_DEFAULT = 23.151637;
     private final double LON_DEFAULT = 113.344721;
     private EditText mLocEditText;
@@ -89,26 +90,26 @@ public class MainActivity
             }
         }
 
-        AlertDialog.Builder builder  = new AlertDialog.Builder(this);
-        builder.setMessage("尚未开启位置定位服务");
-        builder.setPositiveButton("开启", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                //启动定位Activity
-                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                startActivityForResult(intent , 2);
+        if (!LocationUtil.isLocServiceEnable(this)) {
+            AlertDialog.Builder builder  = new AlertDialog.Builder(this);
+            builder.setMessage("尚未开启位置定位服务");
+            builder.setPositiveButton("开启", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    //启动定位Activity
+                    Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS, Uri.parse("package:" + getPackageName()));
+                    startActivityForResult(intent, REQUEST_CODE_PERMISSIONS);
+                }
 
 
-            }
+            });
 
-
-        });
-
-        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-            }
-        });
+            builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                }
+            });
+        }
 
         mLocEditText.setSelection(mLocEditText.getText().length());
 
