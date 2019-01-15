@@ -34,14 +34,14 @@ import com.ninesward.nymph.util.FakeGpsUtils;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback, View.OnClickListener {
+public class MainActivity
+        extends AppCompatActivity
+        implements ActivityCompat.OnRequestPermissionsResultCallback, View.OnClickListener {
 
     public static final int DELETE_ID = 1001;
     public static final int MY_PERMISSIONS_REQUEST = 1;
-    private final double LAT_DEFAULT = 37.802406;
-    //    private final double LAT_DEFAULT = 23.151637;
-//    private final double LON_DEFAULT = 113.344721;
-    private final double LON_DEFAULT = -122.401779;
+    private final double LAT_DEFAULT = 23.151637;
+    private final double LON_DEFAULT = 113.344721;
     private EditText mLocEditText;
     private EditText mMoveStepEditText;
     private ListView mListView;
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
         setContentView(R.layout.activity_main);
 
         //location input
-        mLocEditText = (EditText) findViewById(R.id.inputLoc);
+        mLocEditText = findViewById(R.id.inputLoc);
         LocPoint currentLocPoint = JoyStickManager.get().getCurrentLocPoint();
         if (currentLocPoint != null) {
             mLocEditText.setText(currentLocPoint.toString());
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
             arrPerm.add(Manifest.permission.WRITE_SETTINGS);
         }
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CONTROL_LOCATION_UPDATES) != PackageManager.PERMISSION_GRANTED) {
-            arrPerm.add(Manifest.permission.WRITE_SETTINGS);
+            arrPerm.add(Manifest.permission.CONTROL_LOCATION_UPDATES);
         }
         if (!arrPerm.isEmpty()) {
             String[] permissions = new String[arrPerm.size()];

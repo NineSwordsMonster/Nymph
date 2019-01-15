@@ -29,7 +29,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/loc_input_hint"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            android:inputType="none" />
 
 
     </LinearLayout>
@@ -100,14 +101,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/btn_start"/>
+            android:text="@string/btn_start"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/btn_set_loc"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/btn_set_new_loc"/>
+            android:text="@string/btn_set_new_loc"
+            style="?android:attr/buttonBarButtonStyle" />
 
 
     </LinearLayout>

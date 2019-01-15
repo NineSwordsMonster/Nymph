@@ -14,19 +14,22 @@
             android:id="@+id/btn_set_loc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_set_loc"/>
+            android:contentDescription="@string/location"
+            android:src="@drawable/ic_set_loc" />
 
         <ImageButton
             android:id="@+id/btn_fly_to"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_flight_takeoff"/>
+            android:contentDescription="@string/btn_fly_start"
+            android:src="@drawable/ic_flight_takeoff" />
 
         <ImageButton
             android:id="@+id/btn_bookmark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_bookmark"/>
+            android:contentDescription="@string/bookmark"
+            android:src="@drawable/ic_bookmark" />
 
 
     </LinearLayout>
