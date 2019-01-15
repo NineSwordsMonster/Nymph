@@ -31,8 +31,8 @@ public class BookmarkActivity extends AppCompatActivity implements View.OnClickL
         Intent intent = getIntent();
         String name = intent.getStringExtra(EXTRA_NAME);
         LocPoint locPoint = (LocPoint) intent.getSerializableExtra(EXTRA_LOCATION);
-        mNameEditText = (EditText) findViewById(R.id.inputName);
-        mLocEditText = (EditText) findViewById(R.id.inputLoc);
+        mNameEditText = findViewById(R.id.inputName);
+        mLocEditText = findViewById(R.id.inputLoc);
 
         mNameEditText.setText(name);
         if (!TextUtils.isEmpty(name)) {
