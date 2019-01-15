@@ -35,6 +35,7 @@ import com.ninesward.nymph.model.LocPoint;
 import com.ninesward.nymph.util.DbUtils;
 import com.ninesward.nymph.util.FakeGpsUtils;
 import com.ninesward.nymph.util.LocationUtil;
+import com.qmuiteam.qmui.util.QMUIStatusBarHelper;
 
 import java.util.ArrayList;
 
@@ -74,6 +75,7 @@ public class MainActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        QMUIStatusBarHelper.translucent(this);
         setContentView(R.layout.activity_main);
 
         //location input
